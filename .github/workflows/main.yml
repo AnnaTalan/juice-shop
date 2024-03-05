@@ -1,0 +1,27 @@
+name: Juice Shop CodeQL Scan
+
+on:
+  push:
+    branches:
+      - main  # виберіть основну гілку вашого репозиторію
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: javascript
+
+    - name: Analyze code
+      uses: github/codeql-action/analyze@v1
+
+    - name: Upload SARIF results
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: ./codeql-sarif.sarif
