@@ -25,4 +25,4 @@ jobs:
       - name: Send CodeQL SARIF report to DefectDojo
         run: |
           curl -X POST -H "Authorization: Token 7e192207480eb609b4bc4a1d0436b706618ff8eb" \
-          -F "file=/home/juice-shop/javascript.sarif" http://127.0.0.1:8080/api/v2/import-scan/
+          -F "file=/home/juice-shop/javascript.sarif" http://localhost:8080/api/v2/import-scan/
